@@ -93,7 +93,8 @@ onclick="result.value=''">
 </form>
 </body>
 ## OUTPUT:
-
-
+![image](https://github.com/gracia55/standard-calculator/assets/129026838/7fe81bb0-0288-48dc-882c-f2a6d6ecce3c)
+## HTML VALIDATOR:
+![image](https://github.com/gracia55/standard-calculator/assets/129026838/e23c712e-95fb-488d-a622-72b7f5b73465)
 ## Result:
-
+The program for designing a simple calculator using javascript is executed successfully.
