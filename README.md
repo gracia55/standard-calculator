@@ -19,79 +19,133 @@ Validate the HTML and CSS code.
 Publish the website in the given URL.
 
 ## PROGRAM :
-<title>SEC Demo on Calculator</title> <style type="text/css"> table{ border: 1px solid
-black; margin-left: auto; margin-right: auto; } input[type="text"]{ border: 1px solid black;
-padding: 20px 30px; font-size: 24px; font-weight: bold; border-radius: 2px; }
-input[type="button"]{
-width: 100%;
-padding: 20px 40px;
-background-color:greenyellow;
-border-radius: 2px;
-}
-</style>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/static/CSS/style.css">
+    <title>Calculator</title>
 </head>
+
 <body>
-<form name="form1" onload="result.value=''">
-<h1 style="text-align: center;color:blue;">Simple Calculator</h1>
-<table id="calc">
-<tr>
-<td colspan="4">
-<input type="text" id="result">
-</td>
-</tr>
-<tr>
-<td><input type="button" value="1"
-onclick="result.value+='1'"/></td>
-<td><input type="button" value="2"
-onclick="result.value+='2'"/></td>
-<td><input type="button" value="3"
-onclick="result.value+='3'"/></td>
-<td><input type="button" value="+"
-onclick="result.value+='+'"/></td>
-</tr>
-<tr>
-<td><input type="button" value="4"
-onclick="result.value+='4'"/></td>
-<td><input type="button" value="5"
-onclick="result.value+='5'"/></td>
-<td><input type="button" value="6"
-onclick="result.value+='6'"/></td>
-<td><input type="button" value="-" onclick="result.value+='-
-'"/></td>
-</tr>
-<tr>
-<td><input type="button" value="7"
-onclick="result.value+='7'"/></td>
-<td><input type="button" value="8"
-onclick="result.value+='8'"/></td>
-<td><input type="button" value="9"
-onclick="result.value+='9'"/></td>
-<td><input type="button" value="" onclick="result.value+=''"/>
-</td>
-</tr>
-<tr>
-<td><input type="button" value="/"
-onclick="result.value+='/'"/></td>
-5/13/23, 8:54 PM standard-calculator/README.md at main · gracia55/standard-calculator
-https://github.com/gracia55/standard-calculator/blob/main/README.md 3/4
-'''
-OUTPUT:
-<td><input type="button" value="0"
-onclick="result.value+='0'"/></td>
-<td><input type="button" value="."
-onclick="result.value+='.'"/></td>
-<td><input type="button" value="="
-onclick="result.value=eval(result.value)"/></td>
-</tr>
-<tr>
-<td colspan="4">
-<input type="button" value="clearall" id="clear"
-onclick="result.value=''">
-</td>
-</tr>
-</table>
-</form>
+    <div class="container">
+        <h1>Calculator</h1>
+
+        <div class="calculator">
+            <input type="text" name="screen" id="screen">
+            <table>
+                <tr>
+                    <td><button>(</button></td>
+                    <td><button>)</button></td>
+                    <td><button>C</button></td>
+                    <td><button>%</button></td>
+                </tr>
+                <tr>
+                    <td><button>7</button></td>
+                    <td><button>8</button></td>
+                    <td><button>9</button></td>
+                    <td><button>X</button></td>
+                </tr>
+                <tr>
+                    <td><button>4</button></td>
+                    <td><button>5</button></td>
+                    <td><button>6</button></td>
+                    <td><button>-</button></td>
+                </tr>
+                <tr>
+                    <td><button>1</button></td>
+                    <td><button>2</button></td>
+                    <td><button>3</button></td>
+                    <td><button>+</button></td>
+                </tr>
+                <tr>
+                    <td><button>0</button></td>
+                    <td><button>.</button></td>
+                    <td><button>/</button></td>
+                    <td><button>=</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
 </body>
+<script src="/static/JS/index.js"></script>
+</html>
+
+
+CSS
+
+.container{
+    text-align: center;
+    margin-top:23px
+}
+
+table{
+    margin: auto;
+}
+
+input{
+    border-radius: 21px;
+    border: 5px solid #0328f8;
+    font-size:34px;
+    height: 65px;
+    width: 456px;
+}
+
+button{
+    border-radius: 20px;
+    font-size: 40px;
+    background: #f8f8f8;
+    width: 102px;
+    height: 90px;
+    margin: 6px;
+}
+
+.calculator{ 
+    border: 4px solid #1ae608;
+    background-color: #000000;
+    padding: 23px;
+    border-radius: 53px;
+    display: inline-block;
+    
+}
+
+h1{
+    font-size: 28px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+JavaScript
+
+let screen = document.getElementById('screen');
+buttons = document.querySelectorAll('button');
+let screenValue = '';
+for (item of buttons) {
+    item.addEventListener('click', (e) => {
+        buttonText = e.target.innerText;
+        console.log('Button text is ', buttonText);
+        if (buttonText == 'X') {
+            buttonText = '*';
+            screenValue += buttonText;
+            screen.value = screenValue;
+        }
+        else if (buttonText == 'C') {
+            screenValue = "";
+            screen.value = screenValue;
+        }
+        else if (buttonText == '=') {
+            screen.value = eval(screenValue);
+        }
+        else {
+            screenValue += buttonText;
+            screen.value = screenValue;
+        }
+
+    })
+}
 ## OUTPUT:
 ![image](https://github.com/gracia55/standard-calculator/assets/129026838/7fe81bb0-0288-48dc-882c-f2a6d6ecce3c)
 ## HTML VALIDATOR:
